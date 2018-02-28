@@ -2,6 +2,7 @@ package com.vaadin.flow.component.charts.examples.timeline;
 
 import com.vaadin.flow.component.charts.AbstractChartExample;
 import com.vaadin.flow.component.charts.Chart;
+import com.vaadin.flow.component.charts.CustomTimelineChart;
 import com.vaadin.flow.component.charts.examples.timeline.util.StockPrices;
 import com.vaadin.flow.component.charts.model.ChartType;
 import com.vaadin.flow.component.charts.model.Configuration;
@@ -15,9 +16,11 @@ import com.vaadin.flow.component.charts.model.TimeUnitMultiples;
 
 public class Candlestick extends AbstractChartExample {
 
+    protected CustomTimelineChart chart;
+
     @Override
     public void initDemo() {
-        final Chart chart = new Chart(ChartType.CANDLESTICK);
+        chart = new CustomTimelineChart(ChartType.CANDLESTICK);
 
         Configuration configuration = chart.getConfiguration();
         configuration.getTitle().setText("AAPL Stock Price");
