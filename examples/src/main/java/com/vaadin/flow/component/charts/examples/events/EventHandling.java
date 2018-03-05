@@ -8,6 +8,8 @@ import com.vaadin.flow.component.notification.Notification;
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
 
+import static java.util.stream.Collectors.toList;
+
 public class EventHandling extends Candlestick {
 
     @Override
@@ -83,6 +85,9 @@ public class EventHandling extends Candlestick {
         chart.addSeriesAfterAnimateListener(e -> {
             String message = String.format("Series animated! Series=%s",
                     e.getSeriesItemIndex());
+            System.out.println("ANIMATED SERIES: " + e.getSeriesItemIndex());
+            System.out.println("SERIES SIZE: " + chart.getConfiguration().getSeries().size());
+            System.out.println(chart.getConfiguration().getSeries().stream().map(s -> s.getId() + " -> " + s.getName()).collect(toList()));
             toast(message);
         });
 
